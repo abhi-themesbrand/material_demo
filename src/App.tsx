@@ -1,25 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import theme from './theme';
+
 import './App.css';
+import { Button } from '@mui/material';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <div className="App">
+        {/* <Button onClick={}>Toggle</Button> */}
+
+        <Button variant="contained"
+          sx={{ bgcolor: 'primary.dark', '&:hover': { bgcolor: 'primary.light' } }}>
+          Click Button Primary  </Button>
+        <Button variant="contained" color='secondary'> Click Button Secondary </Button>
+        <Button variant="contained" color='success'> Click Button Success </Button>
+        <Button variant="contained" color='info'> Click Button Info </Button>
+        <Button variant="contained" color='warning'> Click Button Warning </Button>
+        <Button variant="contained" color='error'> Click Button Error </Button>
+      </div>
+    </ThemeProvider>
   );
 }
 
